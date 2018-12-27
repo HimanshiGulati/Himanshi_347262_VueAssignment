@@ -5,22 +5,22 @@ import router from "@/router";
 let wrapper;
 
 describe("NavBar.vue", () => {
-    beforeEach(() => {
-        wrapper = shallowMount(NavBar, { store, router });
-    })
+  beforeEach(() => {
+    wrapper = shallowMount(NavBar, { store, router });
+  });
 
-    it("should show login/register options initially", () => {
-        const navItems = wrapper.findAll(".nav-item");
-        expect(navItems.length).toBe(3);
-    });
+  it("should show login/register options initially", () => {
+    const navItems = wrapper.findAll(".nav-item");
+    expect(navItems.length).toBe(3);
+  });
 
-    it("should show username after login", async () => {
-        await wrapper.vm.$store.dispatch("users/loginUser", {
-            email: "hkhandelwal4@gmail.com",
-            password: "1234567890"
-        });
-        const navItems = wrapper.findAll(".nav-item");
-        const username = navItems.at(navItems.length - 1).text();
-        expect(username).toBe("hkhandelwal4");
+  it("should show username after login", async () => {
+    await wrapper.vm.$store.dispatch("users/loginUser", {
+      email: "himanshigulati07@gmail.com",
+      password: "1234567890"
     });
+    const navItems = wrapper.findAll(".nav-item");
+    const username = navItems.at(navItems.length - 1).text();
+    expect(username).toBe("himanshigulati07");
+  });
 });
